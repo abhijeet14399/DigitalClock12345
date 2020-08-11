@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>JS - Digital Clock</title>
+
+
+</head>
+<body>
+<div id="digclock" class="clock"></div>
+
+<footer class="ftr">&copy;  Made by Abhijeet Singh &#9829;</footer>
+
+</body>
+</html>
+<style type="text/css">
+		body{
+			background-color:yellow;
+			
+			
+		}
+		.clock{
+			width:600px;
+			margin:auto;
+                        text-align:center;
+			color: black;
+			font-size: 100px;
+			border: 5px solid blue;
+		}
+
+
+
+.ftr{
+  color:black;
+  position: absolute;
+  bottom: 10px;
+  width: 50%;
+  font-size:40px;
+}
+		</style>
+
+<script type="text/javascript">
+
+			function clockFunction(){
+				var date = new Date();
+				var h = date.getHours(); 
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				var period = "AM";
+				
+				if(h >= 12){
+					h = h - 12;
+					period = "PM";
+				}
+
+				if(h == 0){
+					h = 12;
+				}
+
+
+				h = (h < 10) ? "0" + h : h;
+				m = (m < 10) ? "0" + m : m;
+				s = (s < 10) ? "0" + s : s;
+
+				var time = h + ":" + m + ":" + s + " " + period;
+				document.getElementById("digclock").innerText = time;
+				
+
+				setTimeout(clockFunction, 1000);
+			}
+
+			clockFunction();
+
+		</script>
+
